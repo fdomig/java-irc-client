@@ -1,0 +1,16 @@
+.gradle
+build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Local test runner file
+src/main/java/at/franziskusdomig/irc/TestRunner.java
+
+# Idea project files
+*.iml
+*.ipr
+*.iws
