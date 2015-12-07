@@ -1,10 +1,11 @@
 package at.franziskusdomig.irc;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static java.util.stream.Collectors.toMap;
 
 public enum EventType {
 
@@ -48,17 +49,14 @@ public enum EventType {
 
     UNRECOGNIZED_CODE("UNRECOGNIZED_CODE");
 
-    private final String name;
-
     private static final Logger logger = Logger.getLogger(EventType.class.getName());
 
-    private static final Map<String, EventType> codes = new HashMap<>();
+    private static final Map<String, EventType> codes =
+            Arrays.asList(values())
+                    .stream()
+                    .collect(toMap(EventType::name, eventType -> eventType));
 
-    static {
-        Arrays.asList(values())
-                .stream()
-                .forEach(code -> codes.put(code.name, code));
-    }
+    private final String name;
 
     EventType(String name) {
         this.name = name;
