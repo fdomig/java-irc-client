@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class NickMaskTest {
 
-    @Test(expected = AssertionError.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testNullMaskThrows() throws Exception {
         new NickMask(null);
     }

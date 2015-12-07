@@ -7,7 +7,9 @@ public class NickMask {
     private final String mask;
 
     public NickMask(String mask) {
-        assert mask != null;
+        if (mask == null) {
+            throw new IllegalArgumentException("Require mask to be not null");
+        }
 
         this.mask = mask;
     }
